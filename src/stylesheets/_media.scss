@@ -1,4 +1,132 @@
-@media screen and (max-width:1200px){
+@media screen and (max-width:1024px){
 
+  .container{
+    width: 768px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  form{
+    height: auto;
+    width: auto;
+  }
+  p{
+    margin:1.2em 0;
+  }
+  .form-paypal, .form-submit{
+    position: static;
+    padding:0;
+    margin-left: 140px;
+  }
+  .form-paypal{
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    *{
+      margin: 0;
+    }
+    a{
+      display: inline-flex;
+      height: 36px;
+      width: 100px;
+      background: url("../img/all_img.png") -110px -110px no-repeat;
+
+    }
+  }
+}
+@media screen and (max-width:768px){
+  h1{
+    font-size: 18px;
+    padding:0 15px;
+  }
+  .container{
+    width: 320px;
+  }
+  form{
+    width: 100%;
+    padding-top: 40px;
+    div{
+      width: 100%;
+    }
+    >div{
+      flex-direction: column;
+
+    }
+    p{
+      width: auto;
+      text-align: left;
+      align-self: flex-start;
+      padding:0 8px;
+    }
+  }
+  .form-inner{
+    width: 50%;
+    margin: 0 8px;
+    >p{
+      position: absolute;
+      left: 0;
+      top:-3.5em;
+      padding-left: 0;
+    }
+    &-small+span{
+      padding: 0 5px;
+    }
+    .alarm-left{
+      left:10%;
+      &:after{
+        left: 10%;
+      }
+    }.alarm-right{
+      left:auto;
+      right:10%;
+      &:after{
+        left:auto;
+        right:10%;
+      }
+
+    }
+  }
+  .card-wrapper-outer{
+    position: static;
+  }
+  .card-wrapper{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    padding: 0 5%;
+    justify-content: space-around;
+  }
+  .mobile-broad{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 8px;
+    margin: 0;
+    input{
+      width: 302px;
+    }
+  }
+  .form-paypal, .form-submit{
+   width: auto;
+    margin: 1em 8px;
+  }
+  .form-submit{
+    margin-top: 0;
+    margin-bottom: 0;
+    label{
+      width:100%;
+    }
+  }
+  .question-hover{
+width: auto;
+    right:-5px;
+    &:after{
+      right: 13px;
+    }
+
+
+  }
 
 }

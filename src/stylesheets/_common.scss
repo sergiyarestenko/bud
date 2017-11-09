@@ -1,15 +1,15 @@
 html,
 body {
-  //background: $white;
-  //color: $font-grey;
-  //font-family: $font-family-main;
-  //font-size: $font-size-main;
-  //line-height:1.5;
+  background: $body_bg;
+  color: $font_main;
+  font-family: $font-family-main;
+  font-size: 14px;
+
 }
 
 body {
   margin: 0 auto;
-  background: red;
+  display: flex;
 }
 a,
 a:hover,
@@ -20,16 +20,292 @@ a:focus {
   text-decoration: none;
 
 }
-
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+div,form,input,h1,h2{
+  display: flex;
+  box-sizing: border-box;
 }
-
 .container {
   margin: 0 auto;
-  width: 1200px;
+  width: 840px;
+  flex-direction:column;
+  padding-bottom: 60px;
+}
+h1,h2{
+  font-size:24px;
+  font-weight:normal;
+  justify-content: center;
+  margin:45px auto 35px auto;
+  text-align: center;
+}
+h2{
+  font-size:18px;
+  margin-top: 50px;
 }
 
+.flex-between{
+  justify-content: space-between;
+}
+
+
+form{
+  margin: 0 auto;
+  flex-direction: column;
+  position: relative;
+  height: 250px;
+  width: 100%;
+  div{
+    align-items: center;
+  }
+  p{
+    font-weight:bold;
+    width: 125px;
+    text-align: right;
+    padding-right:15px;
+    line-height: 1;
+  }
+}
+.form-inner{
+  width: 162px;
+  margin-right: 15px;
+  position: relative;
+  &-small{
+    position: relative;
+  }
+  input,select{
+    border: 1px solid $border_grey;
+    border-radius: 5px;
+    height:32px;
+    line-height: 100%;
+    padding: 0 .5em;
+    transition: .5s;
+    outline: none;
+    &.alarm-open{
+      border: 1px solid $font_alarm;
+      &+.alarm{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+  }
+  input{
+    width: 100%;
+  }
+  select{
+    color: $font_placeholder;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: .01px;
+    text-overflow: '';
+    padding-right:30px;
+    background: url("../img/arrow_down.png") 90% 50% no-repeat #fff;
+    &.selected{
+      color: inherit;
+    }
+  }
+  .alarm{
+    position: absolute;
+    display: inline-flex;
+    top:-40px;
+    left: calc(50% - 8em);
+    font-size: 13px;
+    width: 16em;
+    height: 35px;
+    border:1px solid $font_alarm;
+    border-radius: 5px;
+    background: $alarm_pink;
+    color: $font_alarm;
+    font-weight:bold;
+    justify-content: center;
+    align-items:center;
+    z-index: 5;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+    &:after{
+      content: "";
+      height:15px;
+      width: 15px;
+      transform: rotate(45deg) ;
+      position: absolute;
+      bottom: -9px;
+      left: calc( 50% - 10px );
+      background: $alarm_pink;
+      border:solid $font_alarm;
+      border-width: 0 1px 1px 0;
+    }
+
+  }
+}
+.card-wrapper{
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  span{
+    display:flex;
+    height: 27px;
+    width: 37px;
+    &:first-of-type{
+      background: url("../img/all_img.png") 0 1px no-repeat;
+
+    }
+    &:nth-child(2){
+      background: url("../img/all_img.png") -50px 0 no-repeat;
+
+    }
+    &:nth-child(3){
+      background: url("../img/all_img.png") -100px 0 no-repeat;
+
+    }
+    &:nth-child(4){
+      background: url("../img/all_img.png") -150px 0 no-repeat;
+
+    }
+  }
+}
+
+.question-mark{
+  display: flex;
+  height: 13px;
+  width: 13px;
+  background: url("../img/all_img.png") -200px 0 no-repeat;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+
+}
+.question-mark:hover+.question-hover, .question-hover:hover{
+  visibility: visible;
+  opacity: 1;
+}
+
+.question-hover{
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  flex-direction: row;
+  padding: 18px;
+  font-size: 12px;
+  background: $white;
+  border: 1px solid $border_grey;
+  border-radius: 5px;
+  z-index: 5;
+  bottom: 35px;
+  right:-12px;
+  transition: .5s;
+  &:after{
+    content: "";
+    height:15px;
+    width: 15px;
+    transform: rotate(45deg) ;
+    position: absolute;
+    bottom: -9px;
+    right: 20px;
+    background: $white;
+    border:solid $border_grey;
+    border-width: 0 1px 1px 0;
+  }
+ >div{
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 125px;
+
+    .img-holder{
+      width:110px;
+      height: 68px;
+      margin-bottom: 20px;
+    }
+    &:first-of-type{
+      padding-right: 15px;
+      border-right:1px solid $border_grey;
+      .img-holder{
+
+        background: url("../img/all_img.png") 0 -110px no-repeat;
+      }
+    }
+    &:last-of-type{
+      padding-left: 15px;
+      align-self: flex-start;
+      .img-holder{
+        background: url("../img/all_img.png") 0 -190px no-repeat;
+      }
+    }
+    p{
+      display: flex;
+      text-align: left;
+      font-weight:normal;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      align-self: flex-start;
+      width: auto;
+      &:first-of-type{
+      font-weight:bold;
+    }
+    }
+
+  }
+}
+
+
+.form-submit{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left:140px;
+  input{
+    display: none;
+  }
+  label{
+    text-align: center;
+    width:339px;
+    height: 42px;
+    line-height: 42px;
+    color: $white;
+    font-weight:bold;
+    background: $orange_end;
+    background: -moz-linear-gradient(top, $orange_start 0%, $orange_end 100%);
+    background: -webkit-linear-gradient(top,  $orange_start 0%, $orange_end 100%);
+    background: linear-gradient(to bottom,  $orange_start 0%, $orange_end 100%);
+    border: 1px solid $orange_end;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .15s;
+    &:hover{
+      opacity: .85;
+      box-shadow: 0 0 5px $orange_end;
+      transition: .5s;
+    }
+  }
+}
+.form-paypal{
+  flex-direction: column;
+  position: absolute;
+  top:0;
+  right: 0;
+  background: $paypal_bg;
+  border: 1px solid $border_paypal;
+  border-radius: 3px;
+
+  width: 340px;
+  height: 100%;
+  text-align: center;
+
+
+  a{
+    display: inline-flex;
+    height: 52px;
+    width: 137px;
+    background: url("../img/all_img.png") 0px -50px no-repeat;
+    margin: 0 auto;
+  }
+}
+
+.result{
+
+  flex-direction: column;
+  p{
+    margin: .5em 0;
+  }
+}
